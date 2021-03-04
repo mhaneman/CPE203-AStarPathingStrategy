@@ -25,11 +25,9 @@ class AStarPathingStrategy
         while (openSet.size() > 0)
         {
             Point current = openSet.remove();
-            if (current.equals(end))
-            {
-                System.out.println("yep");
-                return reconstructPath(cameFrom, start, end);
-            }
+            if (withinReach.test(current, end))
+                return reconstructPath(cameFrom, start, current);
+
 
             potentialNeighbors
                     .apply(current)
@@ -50,8 +48,7 @@ class AStarPathingStrategy
                     );
         }
 
-        List<Point> path = new LinkedList<>();
-        return path;
+        return new LinkedList<>();
     }
 
     public List<Point> reconstructPath(Dictionary<Point, Point> cameFrom, Point start, Point end)
