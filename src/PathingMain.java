@@ -15,7 +15,7 @@ public class PathingMain extends PApplet
    private PImage obstacle;
    private PImage goal;
    private List<Point> path;
-   //private PathingStrategy strategy = new SingleStepPathingStrategy();
+//   private PathingStrategy strategy = new SingleStepPathingStrategy();
    private PathingStrategy strategy = new AStarPathingStrategy();
 
    private static final int TILE_SIZE = 32;
@@ -172,10 +172,8 @@ public class PathingMain extends PApplet
       //{
          points = strategy.computePath(pos, goalPos,
                               p ->  withinBounds(p, grid) && grid[p.y][p.x] != GridValues.OBSTACLE,
-                              (p1, p2) -> neighbors(p1,p2),
+                              PathingMain::neighbors,
                               PathingStrategy.CARDINAL_NEIGHBORS);
-                              //DIAGONAL_NEIGHBORS);
-                              //DIAGONAL_CARDINAL_NEIGHBORS);
 
          if (points.size() == 0)
          {
