@@ -60,6 +60,7 @@ class AStarPathingStrategy implements PathingStrategy
             path.add(cameFrom.get(current));
             current = cameFrom.get(current);
         }
+        path.remove(path.size() - 1);
         return path;
     }
 
