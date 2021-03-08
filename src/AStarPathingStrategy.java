@@ -5,8 +5,7 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 
-class AStarPathingStrategy
-        implements PathingStrategy
+class AStarPathingStrategy implements PathingStrategy
 {
     public List<Point> computePath(Point start, Point end,
                                    Predicate<Point> canPassThrough,
