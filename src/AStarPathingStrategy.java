@@ -57,10 +57,11 @@ class AStarPathingStrategy implements PathingStrategy
         path.add(current);
         while(current != start)
         {
-            path.add(cameFrom.get(current));
+            path.add(0, cameFrom.get(current));
             current = cameFrom.get(current);
         }
-        path.remove(path.size() - 1);
+        if (path.size() > 0)
+            path.remove(0);
         return path;
     }
 
