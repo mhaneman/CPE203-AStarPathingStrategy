@@ -52,7 +52,7 @@ class AStarPathingStrategy implements PathingStrategy
 
     public List<Point> reconstructPath(Dictionary<Point, Point> cameFrom, Point start, Point end)
     {
-        List<Point> path = new LinkedList<>();
+        List<Point> path = new Stack<>();
         Point current = end;
         path.add(current);
         while(current != start)
